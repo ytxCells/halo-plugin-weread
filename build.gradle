@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+<<<<<<< HEAD
     id "io.freefair.lombok" version "8.13"
     id "run.halo.plugin.devtools" version "0.6.1"
 }
@@ -14,17 +15,40 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.1'
     implementation 'org.apache.httpcomponents:httpclient:4.5.13'
     implementation platform('run.halo.tools.platform:plugin:2.21.0')
+=======
+    id "com.github.node-gradle.node" version "7.0.2"
+    id "io.freefair.lombok" version "8.0.1"
+    id "run.halo.plugin.devtools" version "0.2.0"
+}
+
+group 'run.halo.starter'
+sourceCompatibility = JavaVersion.VERSION_17
+
+repositories {
+    mavenCentral()
+    maven { url 'https://s01.oss.sonatype.org/content/repositories/releases' }
+    maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots/' }
+    maven { url 'https://repo.spring.io/milestone' }
+}
+
+dependencies {
+    implementation platform('run.halo.tools.platform:plugin:2.20.0-SNAPSHOT')
+>>>>>>> 553b8b6 (Initial commit)
     compileOnly 'run.halo.app:api'
 
     testImplementation 'run.halo.app:api'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+<<<<<<< HEAD
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+=======
+>>>>>>> 553b8b6 (Initial commit)
 }
 
 test {
     useJUnitPlatform()
 }
 
+<<<<<<< HEAD
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
@@ -57,3 +81,32 @@ halo {
     debugPort = 5005
 }
 
+=======
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+}
+
+node {
+    nodeProjectDir = file("${project.projectDir}/ui")
+}
+
+tasks.register('buildFrontend', PnpmTask) {
+    args = ['build']
+    dependsOn('installDepsForUI')
+}
+
+tasks.register('installDepsForUI', PnpmTask) {
+    args = ['install']
+}
+
+build {
+    // build frontend before build
+    tasks.named('compileJava').configure {
+        dependsOn('buildFrontend')
+    }
+}
+
+halo {
+    version = '2.20'
+}
+>>>>>>> 553b8b6 (Initial commit)
