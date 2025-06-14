@@ -32,6 +32,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.apache.httpcomponents:httpclient:4.5.13'
     implementation platform('run.halo.tools.platform:plugin:2.20.0-SNAPSHOT')
 >>>>>>> 553b8b6 (Initial commit)
     compileOnly 'run.halo.app:api'

@@ -5,6 +5,7 @@ logs/
 
 ### Gradle
 .gradle
+.github
 /build/
 /out/
 !gradle/wrapper/gradle-wrapper.jar
