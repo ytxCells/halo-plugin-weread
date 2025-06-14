@@ -15,8 +15,11 @@ spec:
   homepage: https://github.com/halo-dev/plugin-starter#readme
   repo: https://github.com/halo-dev/plugin-starter
   issues: https://github.com/halo-dev/plugin-starter/issues
-  displayName: "插件快速开始模板"
-  description: "这是一个插件快速开始模板"
+  displayName: "微信读书插件"
+  description: "这是一个微信读书插件，用来同步微信读书中书籍元信息、高亮标注，划线感想、书评等，并将这些信息同步Halo博客系统"
   license:
     - name: "GPL-3.0"
       url: "https://github.com/halo-dev/plugin-starter/blob/main/LICENSE"
+
+  configMapName: setting-weread-configmap
+  settingName: setting-weread

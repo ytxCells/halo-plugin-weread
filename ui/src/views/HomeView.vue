@@ -1,22 +1,27 @@
-<script setup lang="ts">
-import confetti from "canvas-confetti";
-import { onMounted } from "vue";
-import RiShareCircleLine from "~icons/ri/share-circle-line";
-import RiCodeBoxLine from "~icons/ri/code-box-line";
-import RiBookReadLine from "~icons/ri/book-read-line";
-import RiComputerLine from "~icons/ri/computer-line";
-import RiArrowRightSLine from "~icons/ri/arrow-right-s-line";
-
-onMounted(() => {
-  confetti({
-    particleCount: 100,
-    spread: 70,
-    origin: { y: 0.6, x: 0.58 },
-  });
-});
-</script>
 
 <template>
+  <VPageHeader title="微信读书">
+    <template #actions>
+      <VSpace v-permission="['plugin:douban:manage']">
+        <VButton :route="{ name: 'DoubanCron' }" size="sm">
+          任务
+        </VButton>
+        <VButton :route="{ name: 'DoubanCron' }" size="sm">
+          登陆
+        </VButton>
+        <VButton type="secondary">
+          <template #icon>
+            <IconAddCircle class="h-full w-full" />
+          </template>
+          新建
+        </VButton>
+        <VButton type="secondary">
+          同步数据
+        </VButton>
+        <VButton type="danger"> 清空 </VButton>
+      </VSpace>
+    </template>
+  </VPageHeader>
   <section id="plugin-starter">
     <div class="wrapper">
       <span class="title"> 你已经成功运行起了插件！ </span>
@@ -74,6 +79,37 @@ onMounted(() => {
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+import confetti from "canvas-confetti";
+import { onMounted } from "vue";
+import RiShareCircleLine from "~icons/ri/share-circle-line";
+import RiCodeBoxLine from "~icons/ri/code-box-line";
+import RiBookReadLine from "~icons/ri/book-read-line";
+import RiComputerLine from "~icons/ri/computer-line";
+import RiArrowRightSLine from "~icons/ri/arrow-right-s-line";
+import {VCard,
+  IconRefreshLine,
+  Dialog,
+  VButton,
+  VEmpty,
+  VLoading,
+  VPagination,
+  VPageHeader,
+  VDropdownItem,
+  Toast,
+  VSpace,
+  IconAddCircle,
+  IconCloseCircle} from "@halo-dev/components";
+onMounted(() => {
+  confetti({
+    particleCount: 100,
+    spread: 70,
+    origin: { y: 0.6, x: 0.58 },
+  });
+});
+</script>
+
 
 <style lang="scss" scoped>
 #plugin-starter {
