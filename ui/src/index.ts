@@ -9,15 +9,15 @@ export default definePlugin({
     {
       parentName: "Root",
       route: {
-        path: "/read",// TodoList 的路由 path
-        name: "Read",// 菜单标识名
+        path: "/example",
+        name: "Example",
         component: HomeView,
         meta: {
-          title: "Todo List",//菜单页的浏览器 tab 标题
+          title: "示例页面",
           searchable: true,
           menu: {
-            name: "微信读书",// TODO 菜单显示名称
-            group: "content",// 所在组名
+            name: "示例页面",
+            group: "示例分组",
             icon: markRaw(IconPlug),
             priority: 0,
           },

@@ -34,7 +34,7 @@ cd path/to/plugin-starter
 ```bash
 # macOS / Linux
 ./gradlew pnpmInstall
-# 权限不够 开头加 sudo 
+
 # Windows
 ./gradlew.bat pnpmInstall
 ```
@@ -58,10 +58,6 @@ cd path/to/plugin-starter
 ```bash
 # macOS / Linux
 ./gradlew build
-# 带堆栈跟踪运行构建
-./gradlew haloServer --stacktrace
-# 如果仍然失败，使用调试模式
-./gradlew haloServer --debug
 
 # Windows
 ./gradlew.bat build
