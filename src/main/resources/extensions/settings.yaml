@@ -1,0 +1,12 @@
+apiVersion: v1alpha1
+kind: Setting
+metadata:
+  name: setting-weread
+spec:
+  forms:
+    - group: weread
+      label: 设置
+      formSchema:
+        - $formkit: textarea
+          name: keywords
+          label: "微信读书cookie"
