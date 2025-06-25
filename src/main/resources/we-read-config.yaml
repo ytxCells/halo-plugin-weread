@@ -1,0 +1,19 @@
+apiVersion: v1alpha1
+kind: config
+metadata:
+  name: config
+spec:
+  froms:
+    - group: seo
+      label: SEO 设置
+      formSchema:
+        - $formkit: checkbox
+          name: blockSpiders
+          label: "屏蔽搜索引擎"
+          value: false
+        - $formkit: textarea
+          name: keywords
+          label: "站点关键词"
+        - $formkit: textarea
+          name: description
+          label: "站点描述"
